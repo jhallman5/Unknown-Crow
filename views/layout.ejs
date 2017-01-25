@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='em'>
+<head>
+    <meta charset='utf-8'>
+    <title>To do App </title>
+
+    <!--css  -->
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/css/style.css'>
+</head>
+<body>
+<!--header   -->
+<header id='site-header'>
+  <div class='navbar navbar-inverse'>
+    <div class='container'>
+      <div class='navbar-header'>
+          <a href='' class="navbar-brand">To Do App</a>
+      </div>
+
+      <ul class='nav navbar-nav'>
+        <li><a href='/events'>Events</a> </li>
+        <li><a href='/events/create'>Create an Event</a> </li>
+      </ul>
+
+    </div>
+  </div>
+</header>
+<!-- main -->
+
+<main id='site-main'>
+    <div class='container'>
+      <%- body %>
+</main>
+
+
+<!-- footer -->
+<footer id='site-footer'>
+    Copywrite &copy; 2017 The Little Shits
+</footer>
+
+</body>
+</html>
