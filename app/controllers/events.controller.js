@@ -8,7 +8,9 @@ showCreate: showCreate,
 processCreate: processCreate,
 showEdit : showEdit,
 processEdit : processEdit,
-deleteEvent : deleteEvent
+deleteEvent : deleteEvent,
+raisePriority : raisePriority,
+lowerPriority:lowerPriority
 }
 
 
@@ -47,12 +49,7 @@ function showSingle(req, res) {
 // seed our database
 function seedEvents(req, res) {
     // creaste some events
-    const events = [
-      { name: 'basketball' , description: 'throwing into a basket'},
-      { name: 'swimming', description: 'its fucking swimming'},
-      { name: 'weightlifting ', description: 'the only sport that really matters '},
-      { name: 'Muay Thai ', description: 'the only sport that is really dangerous '}
-    ];
+
     //use the Event model to insert/save
     Event.remove({}, () => {
       for (event of events) {
@@ -89,6 +86,7 @@ function processCreate(req, res) {
   const event = new Event({
     name: req.body.name,
     description: req.body.description
+  
   });
 
   //save the event
@@ -134,6 +132,7 @@ function processEdit(req, res) {
     event.name        = req.body.name;
     event.description = req.body.description;
 
+
     event.save((err) => {
       if(err)
         throw err;
@@ -157,3 +156,10 @@ function deleteEvent(req, res) {
     res.redirect('/events');
 
     })}
+
+function raisePriority(req, res) {
+
+req.flash("success", "Successfully moved event.");
+}
+
+function lowerPriority(req, res) {}

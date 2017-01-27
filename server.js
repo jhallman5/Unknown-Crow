@@ -14,9 +14,7 @@ const express      = require('express'),
   expressValidator = require('express-validator');
 
 
-
-
-//configure our application ===========================
+//configure our application =====================================
 //set sesstions and cookie parser
 app.use(cookieParser());
 app.use(session({
@@ -35,22 +33,22 @@ app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
 
-//connect to our data base =================================
+//connect to our data base =====================================
 mongoose.connect(process.env.DB_URI);
 
 
-//use body parser to grab info from a form =================
+//use body parser to grab info from a form =====================
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(expressValidator());
 
 
-// set the routes =========================================
+// set the routes =============================================
 app.use(require('./app/routes'));
 
 
 
 
-// start our server ======================================
+// start our server ==========================================
 app.listen(port, () => {
   console.log(`App listening on http://localhost:${port}`);
 });
