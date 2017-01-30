@@ -36,7 +36,7 @@ function showSingle(req, res) {
     Event.findOne({ slug: req.params.slug }, (err, event) => {
       if(err) {
         res.status(404);
-        res.send('Event not found');
+        res.send('Item not found');
       }
 
     res.render('pages/single', {
@@ -86,7 +86,7 @@ function processCreate(req, res) {
   const event = new Event({
     name: req.body.name,
     description: req.body.description
-  
+
   });
 
   //save the event
@@ -95,7 +95,7 @@ function processCreate(req, res) {
       throw err;
     }
     // set a succussful flash message
-    req.flash("success", 'Successfully created event!');
+    req.flash("success", 'Successfully created an Item!');
 
     // redirect to the newly created event
     res.redirect(`/events/${event.slug}`);
@@ -138,7 +138,7 @@ function processEdit(req, res) {
         throw err;
 
         //success flash message
-      req.flash("success", "Successfully updated event.");
+      req.flash("success", "Successfully updated an Item.");
       //redirect to events pages
       res.redirect('/events');
 
@@ -152,14 +152,14 @@ function deleteEvent(req, res) {
     //set flash data
 
     //redirect to the events page
-    req.flash('success', "event Deleted");
+    req.flash('success', "Item Deleted");
     res.redirect('/events');
 
     })}
 
 function raisePriority(req, res) {
 
-req.flash("success", "Successfully moved event.");
+req.flash("success", "Successfully moved an Item.");
 }
 
 function lowerPriority(req, res) {}
